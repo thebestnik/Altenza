@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us" data-theme="theme-1" data-font="inter">
+<html lang="en-us" data-theme="theme-1" data-font="inter" data-headline-style="shimmer">
 <head>
   <meta charset="utf-8">
   <title>Altenza Visa Services | Albania Visa Guidance, Categories &amp; Business Advisory</title>
@@ -901,8 +901,12 @@
     }
 
     /* Style 1 (Default): Luminous Liquid Shimmer with Glowing Sweep Underline */
-    :root:not([data-headline-style]) .hero-luminous h1 em,
+    .hero-luminous h1 em,
+    .hero-accent-text,
     [data-headline-style="shimmer"] .hero-luminous h1 em {
+      position: relative;
+      display: inline-block;
+      font-style: normal;
       background: linear-gradient(
         115deg,
         #ffffff 0%,
@@ -919,8 +923,11 @@
       filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 22px var(--accent));
       font-weight: 800;
       letter-spacing: -0.02em;
+      cursor: default;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    :root:not([data-headline-style]) .hero-luminous h1 em::after,
+    .hero-luminous h1 em::after,
+    .hero-accent-text::after,
     [data-headline-style="shimmer"] .hero-luminous h1 em::after {
       content: '';
       position: absolute;
