@@ -9,7 +9,7 @@
   <!-- Modern Font Options: Inter, Poppins, Plus Jakarta Sans & Quicksand -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Quicksand:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Quicksand:wght@500;600;700&display=swap">
   
   <meta name="description" content="Informative portal for Albania visa categories, requirements, eligibility, business incorporation, and dedicated consultation.">
 
@@ -888,9 +888,134 @@
       max-width: 18ch;
       text-shadow: 0 3px 18px rgba(0,0,0,0.65);
     }
-    .hero-luminous h1 em {
+    /* ------------------------------------------------------------
+       DYNAMIC HERO HEADLINE "ALBANIA VISAS" STYLES
+       Elevated luxury metallic shimmer, editorial serif, or badge
+       ------------------------------------------------------------ */
+    .hero-luminous h1 em, .hero-accent-text {
+      position: relative;
+      display: inline-block;
       font-style: normal;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: default;
+    }
+
+    /* Style 1 (Default): Luminous Liquid Shimmer with Glowing Sweep Underline */
+    :root, [data-headline-style="shimmer"] .hero-luminous h1 em {
+      background: linear-gradient(
+        115deg,
+        #ffffff 0%,
+        var(--accent-light) 25%,
+        #ffffff 48%,
+        var(--accent-on-dark) 70%,
+        var(--accent) 88%,
+        #ffffff 100%
+      );
+      background-size: 240% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: heroTextShimmer 6s ease-in-out infinite alternate;
+      filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 22px var(--accent));
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    :root, [data-headline-style="shimmer"] .hero-luminous h1 em::after {
+      content: '';
+      position: absolute;
+      left: 3%;
+      right: 3%;
+      bottom: -4px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent-light), var(--accent), transparent);
+      border-radius: 999px;
+      box-shadow: 0 0 14px var(--accent-light);
+      animation: sweepPulse 3.5s ease-in-out infinite;
+    }
+
+    /* Style 2: Editorial Luxury Italic Serif (Monocle / Vogue European Prestige) */
+    [data-headline-style="editorial"] .hero-luminous h1 em {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      background: linear-gradient(135deg, #ffffff 15%, var(--accent-light) 50%, var(--accent-on-dark) 85%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 3px 16px rgba(0,0,0,0.7)) drop-shadow(0 0 18px var(--accent));
+      padding: 0 4px;
+    }
+    [data-headline-style="editorial"] .hero-luminous h1 em::after {
+      content: '';
+      position: absolute;
+      left: 1%;
+      right: 1%;
+      bottom: -6px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
+      box-shadow: 0 0 10px var(--accent-light);
+      animation: sweepPulse 4s ease-in-out infinite;
+    }
+
+    /* Style 3: Translucent Frosted Glass Pill / Golden Micro-Badge */
+    [data-headline-style="capsule"] .hero-luminous h1 em {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--accent-light);
+      color: #ffffff;
+      -webkit-text-fill-color: initial;
+      padding: 2px 20px 4px;
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 0 25px rgba(255, 255, 255, 0.2);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    [data-headline-style="capsule"] .hero-luminous h1 em::before {
+      content: '✦';
+      font-size: 0.65em;
       color: var(--accent-light);
+      animation: sparkle 2.2s infinite ease-in-out;
+    }
+    [data-headline-style="capsule"] .hero-luminous h1 em::after {
+      display: none;
+    }
+
+    /* Style 4: Dynamic Morphing Word Cycle */
+    [data-headline-style="morph"] .hero-luminous h1 em {
+      background: linear-gradient(135deg, #ffffff 0%, var(--accent-light) 50%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.65));
+      font-weight: 800;
+      min-width: 6.8ch;
+      display: inline-block;
+      text-align: center;
+    }
+    [data-headline-style="morph"] .hero-luminous h1 em::after {
+      content: '';
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      bottom: -4px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
+    }
+
+    @keyframes heroTextShimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes sweepPulse {
+      0%, 100% { opacity: 0.55; transform: scaleX(0.85); }
+      50% { opacity: 1; transform: scaleX(1.05); }
+    }
+    @keyframes sparkle {
+      0%, 100% { transform: scale(0.9) rotate(0deg); opacity: 0.7; }
+      50% { transform: scale(1.25) rotate(45deg); opacity: 1; }
     }
 
     .hero-luminous .lead-hero {
@@ -2178,7 +2303,7 @@
       </span>
 
       <div class="hero-content">
-        <h1>Your Complete Guide to <em>Albania Visas</em> &amp; Entry.</h1>
+        <h1>Your Complete Guide to <em class="hero-accent-text" id="heroAccentText">Albania Visas</em> &amp; Entry.</h1>
         <p class="lead-hero">
           Explore visa categories, check eligibility, and understand required documents. Connect with our dedicated legal advisors for consultations and single permits.
         </p>
@@ -3213,6 +3338,32 @@
         </button>
       </div>
     </div>
+
+    <div class="customizer-divider"></div>
+
+    <!-- Row 3: Headline Style Selection ("Albania Visas" Accent) -->
+    <div class="customizer-row">
+      <span class="customizer-label">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+        </svg>
+        Accent:
+      </span>
+      <div class="font-pill-group">
+        <button class="font-btn is-active" data-headline-btn="shimmer" title="Luminous Liquid Shimmer with Glowing Sweep Underline">
+          <span>✨ Liquid Shimmer</span>
+        </button>
+        <button class="font-btn" data-headline-btn="editorial" title="Editorial Luxury Italic Serif (European Prestige)">
+          <span>🖋️ Editorial Serif</span>
+        </button>
+        <button class="font-btn" data-headline-btn="capsule" title="Translucent Frosted Glass Pill Badge">
+          <span>💎 Glass Capsule</span>
+        </button>
+        <button class="font-btn" data-headline-btn="morph" title="Dynamic Cycling Keywords">
+          <span>🔄 Word Cycle</span>
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- Client Interaction Scripts -->
@@ -3309,6 +3460,60 @@
         document.documentElement.setAttribute('data-font', targetFont);
         fontButtons.forEach(b => b.classList.remove('is-active'));
         btn.classList.add('is-active');
+      });
+    });
+
+    // 5b. Headline "Albania Visas" Style Switcher & Word Rotator
+    const headlineBtns = document.querySelectorAll('[data-headline-btn]');
+    const heroAccentText = document.getElementById('heroAccentText');
+    const rotatePhrases = [
+      "Albania Visas",
+      "Single Permits",
+      "Residency Routes",
+      "Commercial Visas"
+    ];
+    let phraseIndex = 0;
+    let morphInterval = null;
+
+    function startMorphRotator() {
+      if (morphInterval) clearInterval(morphInterval);
+      morphInterval = setInterval(() => {
+        if (!heroAccentText) return;
+        heroAccentText.style.opacity = '0';
+        heroAccentText.style.transform = 'translateY(6px)';
+        setTimeout(() => {
+          phraseIndex = (phraseIndex + 1) % rotatePhrases.length;
+          heroAccentText.textContent = rotatePhrases[phraseIndex];
+          heroAccentText.style.opacity = '1';
+          heroAccentText.style.transform = 'translateY(0)';
+        }, 220);
+      }, 2600);
+    }
+
+    function stopMorphRotator() {
+      if (morphInterval) {
+        clearInterval(morphInterval);
+        morphInterval = null;
+      }
+      if (heroAccentText) {
+        heroAccentText.textContent = "Albania Visas";
+        heroAccentText.style.opacity = '1';
+        heroAccentText.style.transform = 'none';
+      }
+    }
+
+    headlineBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const style = btn.getAttribute('data-headline-btn');
+        document.documentElement.setAttribute('data-headline-style', style);
+        headlineBtns.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+
+        if (style === 'morph') {
+          startMorphRotator();
+        } else {
+          stopMorphRotator();
+        }
       });
     });
     // 6. Pure Glass Navbar Dynamic Contrast Adaptation
