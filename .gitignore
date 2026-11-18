@@ -1,0 +1,10 @@
+# Python & Scratch Files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+test_arcs.png
+test-logo-*.png
+server.ps1
+generate_*.py
+scratch/
