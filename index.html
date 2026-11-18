@@ -901,7 +901,8 @@
     }
 
     /* Style 1 (Default): Luminous Liquid Shimmer with Glowing Sweep Underline */
-    :root, [data-headline-style="shimmer"] .hero-luminous h1 em {
+    :root:not([data-headline-style]) .hero-luminous h1 em,
+    [data-headline-style="shimmer"] .hero-luminous h1 em {
       background: linear-gradient(
         115deg,
         #ffffff 0%,
@@ -919,7 +920,8 @@
       font-weight: 800;
       letter-spacing: -0.02em;
     }
-    :root, [data-headline-style="shimmer"] .hero-luminous h1 em::after {
+    :root:not([data-headline-style]) .hero-luminous h1 em::after,
+    [data-headline-style="shimmer"] .hero-luminous h1 em::after {
       content: '';
       position: absolute;
       left: 3%;
